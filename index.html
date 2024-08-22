@@ -1,71 +1,54 @@
 <!DOCTYPE>
 <html>
-    <head>
-        <title>Launch Checklist</title>
+
+<head>
+    <title>Launch Checklist</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="scriptHelper.js"></script>
+    <script src="script.js"></script>
+    <script src="bundle.js"></script>
+</head>
+
+<body>
+    <h1>Launch Checklist Form</h1>
+    <div id="missionTarget" data-testid="missionTarget">
+        <!-- Fetch some planetary data -->
         <script>
-            form.addEventListener("load", function() {
-                fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
+            form.addEventListener("load", function () {
+                fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
                     return response;
                 });
             });
         </script>
-        <link rel = "stylesheet" type = "text/css" href = "styles.css" />
-        <script src = "scriptHelper.js"></script>
-        <script src = "script.js"></script>
-        <script src = "bundle.js"></script>
-    </head>
-    <script>
-        window.addEventListener("load", function() {
-            let form = document.querySelector("form");
-            form.addEventListener("submit", function (event) {
-                let pilotNameElement = document.getElementById("pilotName");
-                let pilotName = pilotNameElement.value;
-
-                let copilotNameElement = document.getElementById("copilotName");
-                let copilotName = copilotNameElement.value;
-
-                let fuelLevelElement = document.getElementById("fuelLevel");
-                let fuelLevel = fuelLevelElement.value;
-
-                let cargoMassElement = document.getElementById("cargoMass");
-                let cargoMass = cargoMassElement.value;
-                
-                formSubmission(document, pilotName, copilotName, fuelLevel, cargoMass);
-            });
-        });
-    </script>
-    <body>
-        <h1>Launch Checklist Form</h1>
-        <div id="missionTarget" data-testid="missionTarget">
-            <!-- Fetch some planetary data -->
-        </div>  
-        <div id="launchForm">
-            <form data-testid="testForm">
-                <div class="formField">
-                    <label>Pilot Name <input type="text" name="pilotName" id="pilotName"/></label>
-                </div>
-                <div class="formField">
-                    <label>Co-pilot Name <input type="text" name="copilotName" id="copilotName"/></label>
-                </div>
-                <div class="formField">
-                    <label>Fuel Level (L) <input type="text" name="fuelLevel" id="fuelLevel"/></label> 
-                </div>
-                <div class="formField">
-                    <label>Cargo Mass (kg) <input type="text" name="cargoMass" id="cargoMass"/></label>
-                </div>
-                <button id="formSubmit">Submit</button>
-            </form>
-        </div>
-        <div id="launchStatusCheck">
-            <h2 id="launchStatus" data-testid="launchStatus">Awaiting Information Before Launch</h2>
-            <div id="faultyItems" style="visibility: hidden">
-                <ol>
-                    <li id="pilotStatus" data-testid="pilotStatus">Pilot Ready</li>
-                    <li id="copilotStatus" data-testid="copilotStatus">Co-pilot Ready</li>
-                    <li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
-                    <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
-                </ol>
+    </div>
+    <div id="launchForm">
+        <form data-testid="testForm">
+            <div class="formField">
+                <label>Pilot Name <input type="text" name="pilotName" id="pilotName" /></label>
             </div>
+            <div class="formField">
+                <label>Co-pilot Name <input type="text" name="copilotName" id="copilotName" /></label>
+            </div>
+            <div class="formField">
+                <label>Fuel Level (L) <input type="text" name="fuelLevel" id="fuelLevel" /></label>
+            </div>
+            <div class="formField">
+                <label>Cargo Mass (kg) <input type="text" name="cargoMass" id="cargoMass" /></label>
+            </div>
+            <button id="formSubmit">Submit</button>
+        </form>
+    </div>
+    <div id="launchStatusCheck">
+        <h2 id="launchStatus" data-testid="launchStatus">Awaiting Information Before Launch</h2>
+        <div id="faultyItems" style="visibility: hidden">
+            <ol>
+                <li id="pilotStatus" data-testid="pilotStatus">Pilot Ready</li>
+                <li id="copilotStatus" data-testid="copilotStatus">Co-pilot Ready</li>
+                <li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
+                <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
+            </ol>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
