@@ -47,21 +47,21 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         alert("Please enter vaild names for Pilot and Copilot!");
     } else {
         list.style.visibility= "visible";
-        pilotStatus.innerHTML = `Pilot ${pilot} is ready`;
-        copilotStatus.innerHTML = `Co-pilot ${copilot} is ready`;
+        pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+        copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
         if (Number(fuelLevel) < 10000) {
             fuelLevelElement.innerHTML = "Too little fuel!";
-            launchStatusElement.innerHTML = "Shuttle Not Ready for launch";
+            launchStatusElement.innerHTML = "Shuttle Not Ready for Launch";
             launchStatusElement.style.color = "red";
         } else if (Number(cargoLevel) > 10000) {
-            cargoMassElement.innerHTML = "Too much cargo!";
-            launchStatusElement.innerHTML = "Shuttle Not Ready for launch";
+            cargoMassElement.innerHTML = "Cargo mass too heavy for launch";
+            launchStatusElement.innerHTML = "Shuttle Not Ready for Launch";
             launchStatusElement.style.color = "red";
-        } else if (Number(cargoLevel) < 10000 && Number(fuelLevel) > 10000) {
-            fuelLevelElement.innerHTML = "Enough fuel for your journey!";
-            cargoMassElement.innerHTML = "Cargo light enough for takeoff!";
-            launchStatusElement.innerHTML = "Shuttle Ready for launch";
+        } else if (Number(cargoLevel) <= 10000 && Number(fuelLevel) >= 10000) {
+            fuelLevelElement.innerHTML = "Fuel level high enough for launch";
+            cargoMassElement.innerHTML = "Cargo mass low enough for launch";
+            launchStatusElement.innerHTML = "Shuttle is Ready for Launch";
             launchStatusElement.style.color = "green";
         }
     }
