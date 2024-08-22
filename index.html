@@ -2,6 +2,13 @@
 <html>
     <head>
         <title>Launch Checklist</title>
+        <script>
+            form.addEventListener("load", function() {
+                fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
+                    return response;
+                });
+            });
+        </script>
         <link rel = "stylesheet" type = "text/css" href = "styles.css" />
         <script src = "scriptHelper.js"></script>
         <script src = "script.js"></script>
